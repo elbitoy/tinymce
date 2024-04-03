@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Oxide Skin development demo</title>
@@ -12,6 +13,7 @@
         }
     </style>
 </head>
+
 <body>
     <div style="display: flex; align-items: center; font-size: 14px; margin-bottom: 1rem;">
         <small><strong>UI skin </strong></small>
@@ -40,21 +42,21 @@
         const contentcss = localStorage.getItem('contentcss') || 'default';
 
         tinymce.init({
-            selector:'textarea',
-            plugins: [
-              'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
-              'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime', 'media', 'nonbreaking',
-              'save', 'table', 'directionality', 'emoticons', 'importcss', 'codesample', 'help'
-            ],
-            toolbar: 'undo redo | formatselect | bold italic strikethrough forecolor backcolor blockquote | fontfamily fontsizeinput | link table image media | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat fullscreen',
+            selector: 'textarea',
             toolbar_mode: 'floating',
             toolbar_sticky: true,
             height: 600,
-            skin_url: '/skins/ui/' +  skin,
-            content_css: '/skins/content/' + contentcss + '/content.css'
+            skin_url: '/skins/ui/' + skin,
+            content_css: '/skins/content/' + contentcss + '/content.css',
+            plugins: 'lists wordcount help',
+            toolbar: 'undo redo | bold italic underline strikethrough | numlist bullist | link | charmap emoticons | code fullscreen', // preview
+            menubar: false,
+            promotion: false,
+            help_accessibility: true,
+            license_key: 'gpl'
         });
 
-        function addOptionTo (select) {
+        function addOptionTo(select) {
             return function (_skin) {
                 const option = document.createElement('option');
                 const text = document.createTextNode(_skin);
@@ -64,7 +66,7 @@
             }
         }
 
-        function selectOption (select, optionValueToSelect) {
+        function selectOption(select, optionValueToSelect) {
             for (let i = 0; i < select.options.length; i++) {
                 if (select.options[i].value === optionValueToSelect) {
                     select.selectedIndex = select.options[i].index;
@@ -95,4 +97,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,0 +1,43 @@
+@import 'src/less/theme/theme';
+
+@background-color: white;
+@color-black: #17191a;
+@color-tint: #0170a4;
+@color-white: #fff;
+@color-error: #993000;
+@color-success: #00ada5;
+
+@border-color: #006b99;
+@text-color: #17191a;
+@text-color-muted: #17191a;
+
+@line-height-base: 1.5;
+
+// global
+@tinymce-border-radius: 0;
+@tinymce-border-width: 1px;
+@tinymce-box-shadow: none;
+
+// editor
+@editor-header-border: 1px solid @border-color;
+@editor-header-box-shadow: none;
+@editor-header-sticky-box-shadow: none;
+@editor-bottom-header-box-shadow: none;
+@editor-bottom-header-sticky-box-shadow: none;
+@editor-header-sticky-background-color: white;
+
+// toolbar button
+@toolbar-button-icon-color: #557083;
+
+.tox {
+  &:not(.tox-tinymce-inline) .tox-editor-header {
+    padding: 0;
+  }
+
+  .tox-edit-area {
+    &::before {
+      border: @edit-area-border-width solid @edit-area-border-color;
+      border-radius: 0;
+    }
+  }
+}
