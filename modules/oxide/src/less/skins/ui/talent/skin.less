@@ -2,14 +2,14 @@
 
 @background-color: white;
 @color-black: #17191a;
-@color-tint: #0170a4;
+@color-tint: #557083;
 @color-white: #fff;
 @color-error: #993000;
 @color-success: #00ada5;
 
 @border-color: #006b99;
 @text-color: #17191a;
-@text-color-muted: #17191a;
+@text-color-muted: #5D5E5F;
 
 @line-height-base: 1.5;
 
@@ -19,7 +19,7 @@
 @tinymce-box-shadow: none;
 
 // editor
-@editor-header-border: 1px solid @border-color;
+@editor-header-border: 1px solid #d5d9da;
 @editor-header-box-shadow: none;
 @editor-header-sticky-box-shadow: none;
 @editor-bottom-header-box-shadow: none;
@@ -28,6 +28,31 @@
 
 // toolbar button
 @toolbar-button-icon-color: #557083;
+@toolbar-button-height: 32px;
+@toolbar-button-width: 32px;
+@toolbar-button-border-radius: 4px;
+@toolbar-button-disabled-icon-color: #AAB7C1;
+// TOOLBAR BUTTON HOVER STATE
+@toolbar-button-hover-background-color: #EEF1F3;
+@toolbar-button-hover-icon-color: @toolbar-button-icon-color;
+@toolbar-button-hover-text-color: @toolbar-button-icon-color;
+// TOOLBAR BUTTON FOCUS STATE
+@toolbar-button-focus-background-color: @toolbar-button-hover-background-color;
+@toolbar-button-focus-icon-color: @toolbar-button-hover-icon-color;
+@toolbar-button-focus-text-color: @toolbar-button-hover-icon-color;
+// TOOLBAR BUTTON ACTIVE STATE
+@toolbar-button-active-background-color: @toolbar-button-hover-background-color;
+@toolbar-button-enabled-background-color: @toolbar-button-hover-background-color;
+@toolbar-button-active-icon-color: @toolbar-button-hover-icon-color;
+@toolbar-button-active-text-color: @toolbar-button-hover-icon-color;
+@toolbar-button-enabled-icon-color: @toolbar-button-hover-icon-color;
+@toolbar-button-enabled-text-color: @toolbar-button-hover-icon-color;
+
+// CUSTOM
+@border-radius: 4px;
+@box-shadow-dialog: 0 1px 4px rgba(23, 25, 26, .3);
+@color-border-focus: #dde2e6;
+@color-border-toolbar-group: #d5d9da;
 
 .tox {
   &:not(.tox-tinymce-inline) .tox-editor-header {
@@ -39,5 +64,36 @@
       border: @edit-area-border-width solid @edit-area-border-color;
       border-radius: 0;
     }
+  }
+
+  &.tox-tinymce-aux .tox-toolbar__overflow {
+    background-image: repeating-linear-gradient(@color-border-toolbar-group 0 1px, transparent 1px 43px);
+    background-size: calc(100% - 12px * 2) calc(100% - 55px);
+    border-radius: @border-radius;
+    box-shadow: @box-shadow-dialog;
+  }
+
+  .tox-tbtn:focus::after {
+    box-shadow: 0 0 0 2px @color-border-focus;
+  }
+
+  .tox-statusbar__wordcount:focus-visible::after {
+    border-radius: 0;
+    box-shadow: 0 0 0 2px @color-border-focus;
+  }
+
+  .tox-statusbar__path-item:focus-visible::after {
+    border-radius: 0;
+    box-shadow: 0 0 0 2px @color-border-focus;
+  }
+
+  .tox-statusbar a:focus-visible::after {
+    border-radius: 0;
+    box-shadow: 0 0 0 2px @color-border-focus;
+  }
+
+  .tox-statusbar__resize-handle:focus-visible::after {
+    border-radius: 0;
+    box-shadow: 0 0 0 2px @color-border-focus;
   }
 }
